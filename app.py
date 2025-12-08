@@ -316,12 +316,12 @@ if uploaded is not None:
         
         col_res1, col_res2 = st.columns(2)
         with col_res1:
-            st.markdown(f":{res_color}[**{pred_label}**]")
+            st.success(f"**{pred_label}**")
         with col_res2:
             st.metric("Confidence Score", f"{conf:.2%}")
             
         # Optional: Show breakdown if confidence is low
-        if conf < 0.7:
+        if conf > 0.7:
             st.warning("Confidence is low. Check the breakdown below:")
             st.bar_chart({label: prob for label, prob in zip(class_names, probs)})
 
