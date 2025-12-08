@@ -128,11 +128,7 @@ st.set_page_config(page_title="LeafLens - Sugarcane Health", page_icon="🌿", l
 st.markdown("""
 <style>
     /* Main Background & Fonts */
-    .stApp {
-        background-color: #f8fbf8;
-    }
     h1, h2, h3 {
-        color: #1b5e20; /* Dark Green */
         font-family: 'Helvetica Neue', sans-serif;
     }
     h1 {
