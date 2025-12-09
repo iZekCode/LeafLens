@@ -252,18 +252,18 @@ with col_hero_text:
     <div class="info-box">
     <b>Welcome!</b><br>
     Healthy crops mean a healthy harvest. With <b>LeafLens</b>, 
-    farmers and researchers can analyze leaf images in seconds to identify 
+    farmers and researchers can analyze sugarcane leaf images in seconds to identify 
     common diseases like <b>Mosaic, Red Rot, Rust, and Yellow Leaf</b>.
     </div>
     """, unsafe_allow_html=True)
 
 with col_hero_img:
-    hero_local = PUBLIC_DIR / "1.png"
+    hero_local = PUBLIC_DIR / "hero.png"
     if hero_local.exists():
-        st.image(str(hero_local), use_column_width=True, caption="Sugarcane Field")
+        st.image(str(hero_local), use_column_width=True, caption="Disease Check")
 
 # --- DISEASE INFO (TABS) ---
-st.subheader("📚 Disease Encyclopedia")
+st.header("📚 Disease Encyclopedia")
 st.caption("Learn about common sugarcane leaf conditions:")
 
 tab1, tab2, tab3, tab4, tab5 = st.tabs(["✅ Healthy", "🦠 Mosaic", "🍂 Red Rot", "🔸 Rust", "⚠️ Yellow Leaf"])
@@ -274,39 +274,31 @@ with tab1:
 
 with tab2:
     st.error("**Mosaic Disease**")
-    col_d1, col_d2 = st.columns([1, 2])
-    with col_d2:
-        st.write("""
-        **Symptoms:** Mottled patterns of light and dark green on leaves.
-        \n**Impact:** Can stunt growth and reduce sugar content significantly.
-        """)
+    st.write("""
+    **Symptoms:** Mottled patterns of light and dark green on leaves.
+    \n**Impact:** Can stunt growth and reduce sugar content significantly.
+    """)
 
 with tab3:
     st.error("**Red Rot**")
-    col_d1, col_d2 = st.columns([1, 2])
-    with col_d2:
-        st.write("""
-        **Symptoms:** Reddening of internal tissues and drying of leaves starting from the top.
-        \n**Impact:** One of the most destructive diseases, often causing total stalk failure.
-        """)
+    st.write("""
+    **Symptoms:** Reddening of internal tissues and drying of leaves starting from the top.
+    \n**Impact:** One of the most destructive diseases, often causing total stalk failure.
+    """)
 
 with tab4:
     st.error("**Rust**")
-    col_d1, col_d2 = st.columns([1, 2])
-    with col_d2:
-        st.write("""
-        **Symptoms:** Small, elongated orange or brown pustules on the leaf surface.
-        \n**Impact:** Reduces photosynthesis and overall plant vigor.
-        """)
+    st.write("""
+    **Symptoms:** Small, elongated orange or brown pustules on the leaf surface.
+    \n**Impact:** Reduces photosynthesis and overall plant vigor.
+    """)
 
 with tab5:
     st.error("**Yellow Leaf**")
-    col_d1, col_d2 = st.columns([1, 2])
-    with col_d2:
-        st.write("""
-        **Symptoms:** Intense yellowing of the midrib, spreading to the leaf blade.
-        \n**Impact:** Severe yield loss if not managed early.
-        """)
+    st.write("""
+    **Symptoms:** Intense yellowing of the midrib, spreading to the leaf blade.
+    \n**Impact:** Severe yield loss if not managed early.
+    """)
 
 st.divider()
 
@@ -362,7 +354,7 @@ with col_result:
             else:
                 st.error(f"### Detected: {pred_label}")
             
-            st.write(f"**Confidence Score:** {conf:.1%}")
+            st.write(f"**Confidence Score:** {conf:.2%}")
             st.progress(conf)
             
             # Show breakdown details
@@ -373,7 +365,7 @@ with col_result:
                         st.write(label)
                         st.progress(float(prob))
                     with col_p2:
-                        st.write(f"{prob:.1%}")
+                        st.write(f"{prob:.2%}")
 
             # Low confidence warning
             if conf < 0.6:
