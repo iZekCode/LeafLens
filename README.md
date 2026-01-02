@@ -1,4 +1,4 @@
-# Chest CT Scan Classifier (Streamlit)
+# Sugarcane Leaf Diseases Classifier (Streamlit)
 
 A simple, good-looking Streamlit web app that loads a MobileNetV3-Large PyTorch model from `SugarcaneLeaf_MobileNetV3Large.pth` and predicts the class probabilities for an uploaded sugarcane leaf image.
 
